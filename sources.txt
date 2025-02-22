@@ -1,1 +1,5 @@
 link:
+https://www.kaggle.com/code/theeyeschico/crop-analysis-and-prediction#DATA-PRE-PROCESSING
+https://www.kaggle.com/code/ysthehurricane/crop-recommendation-system-using-lightgbm
+https://www.kaggle.com/code/tariqbashir/crop-recommedation-agri-project
+https://www.kaggle.com/code/atharvaingle/what-crop-to-grow
