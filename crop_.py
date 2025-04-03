@@ -20,16 +20,9 @@ knn.fit(X_train, y_train)
 # 3. Đánh giá mô hình
 y_pred = knn.predict(X_test)
 
-print("\nĐộ chính xác của mô hình (Accuracy):", accuracy_score(y_test, y_pred))
+print("\nĐộ chính xác của mô hình KNN (Accuracy):", accuracy_score(y_test, y_pred))
 print("\nBáo cáo phân loại (Classification Report):")
 print(classification_report(y_test, y_pred))
 print("\nMa trận nhầm lẫn (Confusion Matrix):")
 print(confusion_matrix(y_test, y_pred))
 
-# 4. Dự đoán cây trồng (ví dụ sử dụng dữ liệu mới)
-# Giá trị đầu vào mẫu: [N, P, K, temperature, humidity, ph, rainfall]
-sample_input = [[80, 40, 50, 25, 85, 6.5, 200]]  # Thay bằng giá trị của bạn
-sample_input_scaled = scaler.transform(sample_input)
-
-predicted_crop = knn.predict(sample_input_scaled)
-print("\nCây trồng được khuyến nghị:", predicted_crop[0])
