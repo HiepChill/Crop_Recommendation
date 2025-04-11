@@ -114,20 +114,20 @@ async def predict_crop(input_data: PredictionInput):
 @app.post("/suggest-improvement")
 async def suggest_improvement(input_data: ImprovementInput):
     try:
-        print(f"Received input: {input_data.dict()}")
+        # print(f"Received input: {input_data.dict()}")
 
         # Lấy tên cây trồng tiếng Anh từ tên tiếng Việt
         crop_key = reverse_translation.get(input_data.crop)
 
-        print(f"Translated crop: {input_data.crop} -> {crop_key}")
+        # print(f"Translated crop: {input_data.crop} -> {crop_key}")
         
         if not crop_key or crop_key not in crop_requirements:
-            print(f"Crop not found: {input_data.crop}")
+            # print(f"Crop not found: {input_data.crop}")
             raise HTTPException(status_code=404, detail=f"Không tìm thấy thông tin về cây trồng: {input_data.crop}")
         
         # Lấy yêu cầu của cây trồng
         req = crop_requirements[crop_key]
-        print(f"Crop requirements for {crop_key}: {req}")
+        # print(f"Crop requirements for {crop_key}: {req}")
         
         # Tạo danh sách đề xuất
         suggestions = []
@@ -219,13 +219,13 @@ async def suggest_improvement(input_data: ImprovementInput):
                 "priority": "Thấp"
             })
         
-        print(f"Suggestions: {suggestions}")
+        # print(f"Suggestions: {suggestions}")
         return {"suggestions": suggestions}
     
     except HTTPException:
         raise
     except Exception as e:
-        print(f"Error in suggest_improvement: {str(e)}")
+        # print(f"Error in suggest_improvement: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Lỗi đề xuất cải thiện: {str(e)}")
 
 # Endpoint kiểm tra trạng thái API
