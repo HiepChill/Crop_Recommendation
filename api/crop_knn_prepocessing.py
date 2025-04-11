@@ -9,6 +9,7 @@ def preprocess_data(file_path):
     # Xác định các cột đầu vào (features) và đầu ra (label)
     features = data[['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall']]
     labels = data['label']
+    # crop_labels = labels.unique().tolist()
 
     # Chia dữ liệu thành tập huấn luyện và tập kiểm tra
     X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2, random_state=42)
@@ -19,4 +20,6 @@ def preprocess_data(file_path):
     X_test = scaler.transform(X_test)
 
     # Trả về dữ liệu đã xử lý và scaler
+    # return X_train, X_test, y_train, y_test, scaler, crop_labels
     return X_train, X_test, y_train, y_test, scaler
+
